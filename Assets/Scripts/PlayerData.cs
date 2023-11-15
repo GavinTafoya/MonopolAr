@@ -22,8 +22,8 @@ public class PlayerData : MonoBehaviour
     // Rolling the dice for random 1-6 int
     public void RollDice()
     {
-        die1 = Random.Range(0, 6);
-        die2 = Random.Range(0, 6);
+        die1 = Random.Range(1, 7);
+        die2 = Random.Range(1, 7);
 
         Debug.Log("Die 1: " + die1 + ", Die 2: " +  die2);
     }
