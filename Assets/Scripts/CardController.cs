@@ -36,7 +36,7 @@ public struct Card : IComparable
     // Not sure why I put this in here
     public int CompareTo(object obj)
     {
-        Card other = (Card)obj;
+        Card other = (Card)obj; 
         return Name.CompareTo(other.Name);
     }
 }
