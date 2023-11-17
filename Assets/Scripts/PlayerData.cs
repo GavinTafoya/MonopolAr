@@ -20,16 +20,17 @@ public class PlayerData : MonoBehaviour
 
     public GameObject playerPiece;
 
+    [SerializeField] private CardController cards;
     private List<Card> playerCards; // The cards the player has
 
     [SerializeField] private TMP_Text moneyText; // (temporary) The text showing the player's money
     private int money;                           // How much money the player has
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         playerCards = new List<Card>();
-        money = 0;
+        money = 1500;
     }
 
     // Update is called once per frame
