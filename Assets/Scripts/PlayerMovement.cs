@@ -9,6 +9,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] Transform[] positions;
     [SerializeField] private GameObject currentPiece;
 
+    private bool placed = false;
+
     private void Awake()
     {
         position = nextPosition = 0;
@@ -22,17 +24,25 @@ public class PlayerMovement : MonoBehaviour
 
     public void MovePiece(int numSpaces, GameObject piece)
     {
+        currentPiece = piece;
+        StartCoroutine(move(numSpaces));
+    }
+
+    private IEnumerator move(int numSpaces)
+    {
         for (int i = 0; i < numSpaces; i++)
         {
             nextPosition = position + 1;
             if (nextPosition == 40) nextPosition = 0;
 
-            while(piece.transform.position.x != positions[nextPosition].position.x && piece.transform.position.x != positions[nextPosition].position.x)
-            {
-
-            }
-
             position = nextPosition;
         }
+        yield return new WaitUntil(Placed);
+    }
+
+    private bool Placed()
+    {
+        if (currentPiece.transform.position.x != positions[nextPosition].position.x && currentPiece.transform.position.x != positions[nextPosition].position.x) return true;
+        return false;
     }
 }

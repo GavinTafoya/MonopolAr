@@ -131,6 +131,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -7077800663003553150, guid: 63d6b6c6d357c414ab2827bcae26cdc7,
+        type: 3}
+      propertyPath: currentPiece
+      value: 
+      objectReference: {fileID: 1884139856}
     - target: {fileID: 5602719490367554905, guid: 63d6b6c6d357c414ab2827bcae26cdc7,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -186,7 +191,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: Board
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2949694396680235913, guid: 63d6b6c6d357c414ab2827bcae26cdc7, type: 3}
+    - {fileID: 8431209907935936861, guid: 63d6b6c6d357c414ab2827bcae26cdc7, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
