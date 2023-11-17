@@ -70,7 +70,7 @@ public class CardController : MonoBehaviour
         cards.Add(new Card("B & O Railroad", 200, 25, 50, 100, 200, 0, 0, 100, "Railroad"));
         cards.Add(new Card("Atlantic Avenue", 260, 22, 110, 330, 800, 975, 1150, 130, "Yellow"));
         cards.Add(new Card("Vetnor Avenue", 260, 22, 110, 330, 800, 975, 1150, 130, "Yellow"));
-        cards.Add(new Card("Water Works", 150, 4, 10, 0, 0, 0, 0, 75, "Utlities"));
+        cards.Add(new Card("Water Works", 150, 4, 10, 0, 0, 0, 0, 75, "Utility"));
         cards.Add(new Card("Marvin Gardens", 280, 24, 120, 360, 850, 1025, 1200, 140, "Yellow"));
         cards.Add(new Card("Pacific Avenue", 300, 26, 130, 390, 900, 1100, 1275, 150, "Green"));
         cards.Add(new Card("North Carolina Avenue", 300, 26, 130, 390, 900, 1100, 1275, 150, "Green"));
@@ -89,7 +89,7 @@ public class CardController : MonoBehaviour
     // Gets a card by name, unless no cards of that name exists, then you get a blank card
     public Card GetCard(string name)
     {
-        foreach(Card card in cards) if (card.Name == name) return card;
+        foreach (Card card in cards) if (card.Name == name) return card;
         return new Card("None",0,0,0,0,0,0,0,0,"");
     }
 
@@ -103,15 +103,19 @@ public class CardController : MonoBehaviour
     public Card TakeCard(string name)
     {
         Card choice = new Card("",0,0,0,0,0,0,0,0,"");
+        bool cardFound = false;
+
         foreach (Card card in cards)
         {
             if (card.Name == name)
             {
                 choice = card;
+                cardFound = true;
                 break;
             }
         }
-        cards.Remove(choice);
+
+        if (cardFound) cards.Remove(choice);
         return choice;
     }
 }

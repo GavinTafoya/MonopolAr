@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -16,16 +17,22 @@ public class PlayerData : MonoBehaviour
     [SerializeField] private Sprite dieFive;
     [SerializeField] private Sprite dieSix;
 
+    private List<Card> playerCards; // The cards the player has
+
+    [SerializeField] private TMP_Text moneyText; // (temporary) The text showing the player's money
+    private int money;                           // How much money the player has
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        playerCards = new List<Card>();
+        money = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        moneyText.text = "Money: " + money;
     }
 
     // Rolling the dice for random 1-6 int
