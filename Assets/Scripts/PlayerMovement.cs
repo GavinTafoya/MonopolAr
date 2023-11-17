@@ -7,11 +7,10 @@ public class PlayerMovement : MonoBehaviour
 {
     private int position, nextPosition;
     [SerializeField] Transform[] positions;
-    private GameObject currentPiece;
+    [SerializeField] private GameObject currentPiece;
 
     private void Awake()
     {
-        currentPiece = new GameObject();
         position = nextPosition = 0;
     }
 

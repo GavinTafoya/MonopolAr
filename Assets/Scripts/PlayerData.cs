@@ -16,6 +16,9 @@ public class PlayerData : MonoBehaviour
     [SerializeField] private Sprite dieFour;
     [SerializeField] private Sprite dieFive;
     [SerializeField] private Sprite dieSix;
+    [SerializeField] private PlayerMovement playerMovement;
+
+    public GameObject playerPiece;
 
     private List<Card> playerCards; // The cards the player has
 
@@ -42,6 +45,8 @@ public class PlayerData : MonoBehaviour
         die2 = Random.Range(1, 7);
 
         Debug.Log("Die 1: " + die1 + ", Die 2: " +  die2);
+
+        playerMovement.MovePiece(die1 + die2, playerPiece);
 
         if (die1 == 1)
         {
