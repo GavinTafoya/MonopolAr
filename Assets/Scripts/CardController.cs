@@ -36,7 +36,7 @@ public struct Card : IComparable
     // Not sure why I put this in here
     public int CompareTo(object obj)
     {
-        Card other = (Card)obj;
+        Card other = (Card)obj; 
         return Name.CompareTo(other.Name);
     }
 }
@@ -49,6 +49,8 @@ public class CardController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        cards = new List<Card>();
+
         // Time to add every single card to the list
         cards.Add(new Card("Mediterranean Avenue", 60, 2, 10, 30, 90, 160, 250, 30, "Purple"));
         cards.Add(new Card("Baltic Avenue", 60, 4, 20, 60, 180, 320, 450, 30, "Purple"));
@@ -67,15 +69,15 @@ public class CardController : MonoBehaviour
         cards.Add(new Card("Kentucky Avenue", 220, 18, 90, 250, 700, 875, 1050, 110, "Red"));
         cards.Add(new Card("Indiana Avenue", 220, 18, 90, 250, 700, 875, 1050, 110, "Red"));
         cards.Add(new Card("Illinois Avenue", 240, 20, 100, 300, 750, 925, 1100, 120, "Red"));
-        cards.Add(new Card("B & O Railroad", 200, 25, 50, 100, 200, 0, 0, 100, "Railroad"));
+        cards.Add(new Card("Short Line", 200, 25, 50, 100, 200, 0, 0, 100, "Railroad"));
         cards.Add(new Card("Atlantic Avenue", 260, 22, 110, 330, 800, 975, 1150, 130, "Yellow"));
         cards.Add(new Card("Vetnor Avenue", 260, 22, 110, 330, 800, 975, 1150, 130, "Yellow"));
-        cards.Add(new Card("Water Works", 150, 4, 10, 0, 0, 0, 0, 75, "Utlities"));
+        cards.Add(new Card("Water Works", 150, 4, 10, 0, 0, 0, 0, 75, "Utility"));
         cards.Add(new Card("Marvin Gardens", 280, 24, 120, 360, 850, 1025, 1200, 140, "Yellow"));
         cards.Add(new Card("Pacific Avenue", 300, 26, 130, 390, 900, 1100, 1275, 150, "Green"));
         cards.Add(new Card("North Carolina Avenue", 300, 26, 130, 390, 900, 1100, 1275, 150, "Green"));
         cards.Add(new Card("Pennsylvania Avenue", 320, 28, 150, 450, 1000, 1200, 1400, 160, "Green"));
-        cards.Add(new Card("Short Line", 200, 25, 50, 100, 200, 0, 0, 100, "Railroad"));
+        cards.Add(new Card("B & O Railroad", 200, 25, 50, 100, 200, 0, 0, 100, "Railroad"));
         cards.Add(new Card("Park Place", 350, 35, 175, 500, 1100, 1300, 1500, 175, "Blue"));
         cards.Add(new Card("Boardwalk", 400, 50, 200, 600, 1400, 1700, 2000, 200, "Blue"));
     }
@@ -89,7 +91,7 @@ public class CardController : MonoBehaviour
     // Gets a card by name, unless no cards of that name exists, then you get a blank card
     public Card GetCard(string name)
     {
-        foreach(Card card in cards) if (card.Name == name) return card;
+        foreach (Card card in cards) if (card.Name == name) return card;
         return new Card("None",0,0,0,0,0,0,0,0,"");
     }
 
@@ -103,15 +105,19 @@ public class CardController : MonoBehaviour
     public Card TakeCard(string name)
     {
         Card choice = new Card("",0,0,0,0,0,0,0,0,"");
+        bool cardFound = false;
+
         foreach (Card card in cards)
         {
             if (card.Name == name)
             {
                 choice = card;
+                cardFound = true;
                 break;
             }
         }
-        cards.Remove(choice);
+
+        if (cardFound) cards.Remove(choice);
         return choice;
     }
 }
