@@ -352,7 +352,7 @@ GameObject:
   - component: {fileID: 5090946154094598322}
   m_Layer: 0
   m_Name: Ori
-  m_TagString: Untagged
+  m_TagString: Oriental Avenue
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -536,7 +536,7 @@ GameObject:
   - component: {fileID: 3137732502116083828}
   m_Layer: 0
   m_Name: Med
-  m_TagString: Untagged
+  m_TagString: Mediterranean Avenue
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -687,7 +687,7 @@ GameObject:
   - component: {fileID: 2678889277853042091}
   m_Layer: 0
   m_Name: Penn
-  m_TagString: Untagged
+  m_TagString: Pennsylvania Avenue
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -905,7 +905,7 @@ GameObject:
   - component: {fileID: 6878164122467277457}
   m_Layer: 0
   m_Name: Vermont
-  m_TagString: Untagged
+  m_TagString: Vermont Avenue
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1056,7 +1056,7 @@ GameObject:
   - component: {fileID: 5132540685415784265}
   m_Layer: 0
   m_Name: Park
-  m_TagString: Untagged
+  m_TagString: Park Place
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1207,7 +1207,7 @@ GameObject:
   - component: {fileID: 6830447192251503391}
   m_Layer: 0
   m_Name: Short
-  m_TagString: Untagged
+  m_TagString: Short Line
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1358,7 +1358,7 @@ GameObject:
   - component: {fileID: 93669793655144362}
   m_Layer: 0
   m_Name: Illi
-  m_TagString: Untagged
+  m_TagString: Illinois Avenue
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1660,7 +1660,7 @@ GameObject:
   - component: {fileID: 8342863566318433613}
   m_Layer: 0
   m_Name: Tenn
-  m_TagString: Untagged
+  m_TagString: Tennessee Avenue
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1811,7 +1811,7 @@ GameObject:
   - component: {fileID: 1382381203514270573}
   m_Layer: 0
   m_Name: Vetnor
-  m_TagString: Untagged
+  m_TagString: Vetnor Avenue
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2317,7 +2317,7 @@ GameObject:
   - component: {fileID: 9181240822425759977}
   m_Layer: 0
   m_Name: Elec
-  m_TagString: Untagged
+  m_TagString: Electric Company
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2641,7 +2641,7 @@ GameObject:
   - component: {fileID: 5798511693856171826}
   m_Layer: 0
   m_Name: Marv
-  m_TagString: Untagged
+  m_TagString: Marvin Gardens
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3447,7 +3447,7 @@ GameObject:
   - component: {fileID: 673412544451262265}
   m_Layer: 0
   m_Name: Car
-  m_TagString: Untagged
+  m_TagString: North Carolina Avenue
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3598,7 +3598,7 @@ GameObject:
   - component: {fileID: 2899069572876593657}
   m_Layer: 0
   m_Name: Penny
-  m_TagString: Untagged
+  m_TagString: Pennsylvania Railroad
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3900,7 +3900,7 @@ GameObject:
   - component: {fileID: 3278607199070795821}
   m_Layer: 0
   m_Name: Beemo
-  m_TagString: Untagged
+  m_TagString: B & O Railroad
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4202,7 +4202,7 @@ GameObject:
   - component: {fileID: 6789790854660790991}
   m_Layer: 0
   m_Name: Indie
-  m_TagString: Untagged
+  m_TagString: Indiana Avenue
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4353,7 +4353,7 @@ GameObject:
   - component: {fileID: 8915292380776643490}
   m_Layer: 0
   m_Name: York
-  m_TagString: Untagged
+  m_TagString: New York Avenue
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4504,7 +4504,7 @@ GameObject:
   - component: {fileID: 8413080138155842619}
   m_Layer: 0
   m_Name: States
-  m_TagString: Untagged
+  m_TagString: States Avenue
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4690,7 +4690,7 @@ GameObject:
   - component: {fileID: 6652981412690057354}
   m_Layer: 0
   m_Name: Reading
-  m_TagString: Untagged
+  m_TagString: Reading Railroad
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4992,7 +4992,7 @@ GameObject:
   - component: {fileID: 3298617341108903023}
   m_Layer: 0
   m_Name: Virginia
-  m_TagString: Untagged
+  m_TagString: Virginia Avenue
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5629,7 +5629,7 @@ GameObject:
   - component: {fileID: 349207811492259331}
   m_Layer: 0
   m_Name: James
-  m_TagString: Untagged
+  m_TagString: St. James Place
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5780,7 +5780,7 @@ GameObject:
   - component: {fileID: 3932979594613354873}
   m_Layer: 0
   m_Name: Paci
-  m_TagString: Untagged
+  m_TagString: Pacific Avenue
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5931,7 +5931,7 @@ GameObject:
   - component: {fileID: 2910230871915360253}
   m_Layer: 0
   m_Name: Charles
-  m_TagString: Untagged
+  m_TagString: St. Charles Place
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6260,7 +6260,7 @@ GameObject:
   - component: {fileID: 6106494323025222073}
   m_Layer: 0
   m_Name: Connect
-  m_TagString: Untagged
+  m_TagString: Connecticut Avenue
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6411,7 +6411,7 @@ GameObject:
   - component: {fileID: 4873689437072250918}
   m_Layer: 0
   m_Name: Balt
-  m_TagString: Untagged
+  m_TagString: Baltic Avenue
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6562,7 +6562,7 @@ GameObject:
   - component: {fileID: 98530089312434558}
   m_Layer: 0
   m_Name: Board
-  m_TagString: Untagged
+  m_TagString: Boardwalk
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6713,7 +6713,7 @@ GameObject:
   - component: {fileID: 3726010364602585538}
   m_Layer: 0
   m_Name: Kent
-  m_TagString: Untagged
+  m_TagString: Kentucky Avenue
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6933,7 +6933,7 @@ GameObject:
   - component: {fileID: 4622566279359027584}
   m_Layer: 0
   m_Name: Water
-  m_TagString: Untagged
+  m_TagString: Water Works
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7235,7 +7235,7 @@ GameObject:
   - component: {fileID: 4567933906488347967}
   m_Layer: 0
   m_Name: Atla
-  m_TagString: Untagged
+  m_TagString: Atlantic Avenue
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

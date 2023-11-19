@@ -99,4 +99,15 @@ public class PlayerData : MonoBehaviour
             blankDieTwo.sprite = dieSix;
         }
     }
+
+    public void GiveCard(Card card)
+    {
+        playerCards.Add(card);
+    }
+
+    public int RemoveMoney(int amount)
+    {
+        money -= amount;
+        return amount;
+    }
 }

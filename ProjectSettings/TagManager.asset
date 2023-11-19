@@ -3,7 +3,35 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Mediterranean Avenue
+  - Baltic Avenue
+  - Reading Railroad
+  - Oriental Avenue
+  - Vermont Avenue
+  - Connecticut Avenue
+  - St. Charles Place
+  - Electric Company
+  - States Avenue
+  - Virginia Avenue
+  - Pennsylvania Railroad
+  - St. James Place
+  - Tennessee Avenue
+  - New York Avenue
+  - Kentucky Avenue
+  - Indiana Avenue
+  - Illinois Avenue
+  - Short Line
+  - Atlantic Avenue
+  - Vetnor Avenue
+  - Water Works
+  - Marvin Gardens
+  - Pacific Avenue
+  - North Carolina Avenue
+  - Pennsylvania Avenue
+  - B & O Railroad
+  - Park Place
+  - Boardwalk
   layers:
   - Default
   - TransparentFX
