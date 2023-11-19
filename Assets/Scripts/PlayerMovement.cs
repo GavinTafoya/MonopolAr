@@ -6,6 +6,8 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     private int position, nextPosition;
+    private float pieceSpeed = 0.5f;
+
     [SerializeField] Transform[] positions;
     [SerializeField] private GameObject currentPiece;
 
@@ -18,7 +20,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        Vector3 movement = Vector3.MoveTowards(currentPiece.transform.position, positions[nextPosition].position, .1f);
+        Vector3 movement = Vector3.MoveTowards(currentPiece.transform.position, positions[nextPosition].position, Time.deltaTime * pieceSpeed);
         currentPiece.transform.position = new Vector3(movement.x, currentPiece.transform.position.y, movement.z);
     }
 
@@ -35,14 +37,16 @@ public class PlayerMovement : MonoBehaviour
             nextPosition = position + 1;
             if (nextPosition == 40) nextPosition = 0;
 
+            Debug.Log(Placed());
+            yield return new WaitUntil(Placed);
+            yield return new WaitForSeconds(1);
             position = nextPosition;
         }
-        yield return new WaitUntil(Placed);
     }
 
     private bool Placed()
     {
-        if (currentPiece.transform.position.x != positions[nextPosition].position.x && currentPiece.transform.position.x != positions[nextPosition].position.x) return true;
+        if (Vector3.Distance(currentPiece.transform.position, positions[nextPosition].position) <= currentPiece.transform.position.y) return true;
         return false;
     }
 }
