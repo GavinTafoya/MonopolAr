@@ -53,6 +53,50 @@ public class CardController : MonoBehaviour
 
     [SerializeField] private GameObject buyPrompt;
 
+    public string[][] locations =
+    {
+        new string[] {"GO", "Square"},
+        new string[] {"Mediterranean Avenue", "Property"},
+        new string[] {"Community Chest", "Event"},
+        new string[] {"Baltic Avenue","Property"},
+        new string[] {"Income Tax", "Tax"},
+        new string[] {"Reading Railroad","Railroad"},
+        new string[] {"Oriental Avenue", "Property"},
+        new string[] {"Chance", "Event"},
+        new string[] {"Vermont Avenue", "Property"},
+        new string[] {"Connecticut Avenue", "Property"},
+        new string[] {"Jail", "Square"},
+        new string[] {"St. Charles Place", "Property"},
+        new string[] {"Electric Company", "Utility"},
+        new string[] {"States Avenue", "Property"},
+        new string[] {"Virginia Avenue", "Property"},
+        new string[] {"Pennsylvania Railroad", "Railroad"},
+        new string[] {"St. James Place", "Property"},
+        new string[] {"Community Chest", "Event"},
+        new string[] {"Tennessee Avenue", "Property"},
+        new string[] {"New York Avenue", "Property"},
+        new string[] {"Free Parking", "Square"},
+        new string[] {"Kentucky Avenue", "Property"},
+        new string[] {"Chance", "Event"},
+        new string[] {"Indiana Avenue", "Property"},
+        new string[] {"Illinois Avenue", "Property"},
+        new string[] {"Short Line", "Railroad"},
+        new string[] {"Atlantic Avenue", "Property"},
+        new string[] {"Vetnor Avenue", "Property"},
+        new string[] {"Water Works", "Utility"},
+        new string[] {"Marvin Gardens", "Property"},
+        new string[] {"Go to Jail", "Square"},
+        new string[] {"Pacific Avenue", "Property"},
+        new string[] {"North Carolina Avenue", "Property"},
+        new string[] {"Community Chest", "Event"},
+        new string[] {"Pennsylvania Avenue", "Property"},
+        new string[] {"B & O Railroad", "Railroad"},
+        new string[] {"Chance", "Event"},
+        new string[] {"Park Place", "Property"},
+        new string[] {"Luxury Tax", "Tax"},
+        new string[] {"Boardwalk", "Property"},
+    };
+
     // Start is called before the first frame update
     void Start()
     {

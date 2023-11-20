@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    private int position, nextPosition;
+    private int position1, position2, nextPosition;
     private float pieceSpeed = 0.5f;
 
     [SerializeField] Transform[] positions;
@@ -15,7 +15,8 @@ public class PlayerMovement : MonoBehaviour
 
     private void Awake()
     {
-        position = nextPosition = 0;
+        position1 = nextPosition = 0;
+        position2 = 0;
     }
 
     private void Update()
@@ -32,6 +33,7 @@ public class PlayerMovement : MonoBehaviour
 
     private IEnumerator move(int numSpaces)
     {
+        int position = (currentPiece.name == "Player1") ? position1 : position2;
         for (int i = 0; i < numSpaces; i++)
         {
             nextPosition = position + 1;

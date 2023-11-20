@@ -8,6 +8,7 @@ public class PlayerData : MonoBehaviour
 {
     [SerializeField] private int die1;
     [SerializeField] private int die2;
+    [SerializeField] private int playerSwitch = 0;
     [SerializeField] private Image blankDieOne;
     [SerializeField] private Image blankDieTwo;
     [SerializeField] private Sprite dieOne;
@@ -18,7 +19,7 @@ public class PlayerData : MonoBehaviour
     [SerializeField] private Sprite dieSix;
     [SerializeField] private PlayerMovement playerMovement;
 
-    public GameObject playerPiece;
+    public GameObject[] playerPieces = new GameObject[2];
 
     [SerializeField] private CardController cards;
     private List<Card> playerCards; // The cards the player has
@@ -47,7 +48,7 @@ public class PlayerData : MonoBehaviour
 
         Debug.Log("Die 1: " + die1 + ", Die 2: " +  die2);
 
-        playerMovement.MovePiece(die1 + die2, playerPiece);
+        playerMovement.MovePiece(die1 + die2, playerPieces[playerSwitch]);
 
         if (die1 == 1)
         {
@@ -97,6 +98,11 @@ public class PlayerData : MonoBehaviour
         else if (die2 == 6)
         {
             blankDieTwo.sprite = dieSix;
+        }
+
+        if(die1 != die2)
+        {
+            playerSwitch = (playerSwitch == 0) ? 1 : 0;
         }
     }
 
