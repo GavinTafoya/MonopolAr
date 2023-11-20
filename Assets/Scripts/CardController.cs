@@ -177,49 +177,38 @@ public class CardController : MonoBehaviour
     // This is so cancerous right now but I really can't think of a better way to start this off
     // I don't have the time to fix this until after the break so...
 
-    public void Prompt(Transform position)
+    public void Prompt(int position)
     {
-        string name = position.gameObject.name;
-
         // gotta handle special cases
-        if (name.StartsWith("Community"))
+        switch (locations[position][1])
+        {
+            case ("Event"):
+                PopUpEvent(position);
+                break;
+            case ("Property"):
+                PopUpProperty(position);
+                break;
+            default:
+                Debug.Log("How did we get here?");
+                break;
+        }
+    }
+    public void PopUpEvent(int position)
+    {
+
+    }
+
+    public void PopUpProperty(int position)
+    {
+        Card property = GetCard(locations[position][0]);
+
+        if (property.Owner == 0) // property is not owned
         {
 
         }
-        else if (name.StartsWith("Chance"))
+        else // rent is due
         {
-
-        }
-        else if (name.StartsWith("Tax"))
-        {
-
-        }
-        else if (name.Equals("GO"))
-        {
-
-        }
-        else if (name.Equals("Jail") || name.Equals("Free"))
-        {
-
-        }
-        else if (name.Equals("Police"))
-        {
-
-        }
-        else
-        {
-            Card property = GetCard(position.gameObject.tag);
-
-            if (property.Owner == 0) // property is not owned
-            {
-                List<GameObject> buttons = new List<GameObject>(); 
-                buyPrompt.GetChildGameObjects(buttons);
-                buttons[1].GetComponent<Button>().onClick.AddListener(delegate { BuyProperty(property.Name, 1); });
-            }
-            else // rent is due
-            {
-                // TODO: renting
-            }
+            // TODO: renting
         }
     }
 

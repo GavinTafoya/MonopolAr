@@ -10,6 +10,7 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] Transform[] positions;
     [SerializeField] private GameObject currentPiece;
+    [SerializeField] private CardController cardController;
 
     private bool placed = false;
 
@@ -44,6 +45,7 @@ public class PlayerMovement : MonoBehaviour
             yield return new WaitForSeconds(1);
             position = nextPosition;
         }
+        cardController.Prompt(position);
     }
 
     private bool Placed()
