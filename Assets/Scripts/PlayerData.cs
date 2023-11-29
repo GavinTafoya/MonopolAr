@@ -24,7 +24,7 @@ public class PlayerData : MonoBehaviour
     [SerializeField] private CardController cards;
     private List<Card> playerCards; // The cards the player has
 
-    [SerializeField] private TMP_Text moneyText; // (temporary) The text showing the player's money
+    [SerializeField] private TMP_Text[] moneyText; // (temporary) The text showing the player's money
     private int[] money = {1500, 1500};                           // How much money the player has
 
     // Start is called before the first frame update
@@ -36,7 +36,7 @@ public class PlayerData : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        moneyText.text = "Money: " + money;
+        moneyText[playerSwitch].text = "Money: " + money[playerSwitch];
     }
 
     // Rolling the dice for random 1-6 int
@@ -112,7 +112,7 @@ public class PlayerData : MonoBehaviour
 
     public int RemoveMoney(int amount)
     {
-        money[0] -= amount;
+        money[playerSwitch] -= amount;
         return amount;
     }
 }
