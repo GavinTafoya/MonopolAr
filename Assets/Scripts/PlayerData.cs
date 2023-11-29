@@ -25,13 +25,12 @@ public class PlayerData : MonoBehaviour
     private List<Card> playerCards; // The cards the player has
 
     [SerializeField] private TMP_Text moneyText; // (temporary) The text showing the player's money
-    private int money;                           // How much money the player has
+    private int[] money = {1500, 1500};                           // How much money the player has
 
     // Start is called before the first frame update
     void Awake()
     {
         playerCards = new List<Card>();
-        money = 1500;
     }
 
     // Update is called once per frame
@@ -113,7 +112,7 @@ public class PlayerData : MonoBehaviour
 
     public int RemoveMoney(int amount)
     {
-        money -= amount;
+        money[0] -= amount;
         return amount;
     }
 }

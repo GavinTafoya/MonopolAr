@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.XR.CoreUtils;
 using UnityEngine;
 using UnityEngine.UI;
@@ -49,52 +50,55 @@ public struct Card : IComparable
 // Manages the different cards
 public class CardController : MonoBehaviour
 {
-    private List<Card> cards;
+    private List<Card> cards, p1, p2;
 
-    [SerializeField] private GameObject buyPrompt;
+    [SerializeField] private GameObject promptPanel;
+    [SerializeField] private TMP_Text promptText, type, question, price;
+    [SerializeField] private Button yes, no;
+    [SerializeField] private string promptType;
 
     public string[][] locations =
     {
-        new string[] {"GO", "Square"},
-        new string[] {"Mediterranean Avenue", "Property"},
-        new string[] {"Community Chest", "Event"},
-        new string[] {"Baltic Avenue","Property"},
-        new string[] {"Income Tax", "Tax"},
-        new string[] {"Reading Railroad","Railroad"},
-        new string[] {"Oriental Avenue", "Property"},
-        new string[] {"Chance", "Event"},
-        new string[] {"Vermont Avenue", "Property"},
-        new string[] {"Connecticut Avenue", "Property"},
-        new string[] {"Jail", "Square"},
-        new string[] {"St. Charles Place", "Property"},
-        new string[] {"Electric Company", "Utility"},
-        new string[] {"States Avenue", "Property"},
-        new string[] {"Virginia Avenue", "Property"},
-        new string[] {"Pennsylvania Railroad", "Railroad"},
-        new string[] {"St. James Place", "Property"},
-        new string[] {"Community Chest", "Event"},
-        new string[] {"Tennessee Avenue", "Property"},
-        new string[] {"New York Avenue", "Property"},
-        new string[] {"Free Parking", "Square"},
-        new string[] {"Kentucky Avenue", "Property"},
-        new string[] {"Chance", "Event"},
-        new string[] {"Indiana Avenue", "Property"},
-        new string[] {"Illinois Avenue", "Property"},
-        new string[] {"Short Line", "Railroad"},
-        new string[] {"Atlantic Avenue", "Property"},
-        new string[] {"Vetnor Avenue", "Property"},
-        new string[] {"Water Works", "Utility"},
-        new string[] {"Marvin Gardens", "Property"},
-        new string[] {"Go to Jail", "Square"},
-        new string[] {"Pacific Avenue", "Property"},
-        new string[] {"North Carolina Avenue", "Property"},
-        new string[] {"Community Chest", "Event"},
-        new string[] {"Pennsylvania Avenue", "Property"},
-        new string[] {"B & O Railroad", "Railroad"},
-        new string[] {"Chance", "Event"},
-        new string[] {"Park Place", "Property"},
-        new string[] {"Luxury Tax", "Tax"},
-        new string[] {"Boardwalk", "Property"},
+        new string[] {"GO", "Square", "Oh the places you will go... but not on this roll"},
+        new string[] {"Mediterranean Avenue", "Property", "Would you like to buy Mediterranean Avenue?"},
+        new string[] {"Community Chest", "Event", "Take A Card, Any Card"},
+        new string[] {"Baltic Avenue","Property", "Would you like to buy Baltic Avenue?"},
+        new string[] {"Income Tax", "Tax", "You are making too much money, pay up"},
+        new string[] {"Reading Railroad","Railroad", "Would you like to own your very own choo choo?"},
+        new string[] {"Oriental Avenue", "Property", "Would you like to buy Oriental Avenue?"},
+        new string[] {"Chance", "Event", "Take a chance on me"},
+        new string[] {"Vermont Avenue", "Property", "Would you like to buy Vermont Avenue?"},
+        new string[] {"Connecticut Avenue", "Property", "Would you like to buy Connecticut Avenue?"},
+        new string[] {"Jail", "Square", "Get too lucky and they may lock you up in here..."},
+        new string[] {"St. Charles Place", "Property", "Would you like to buy St. Charles Place?"},
+        new string[] {"Electric Company", "Utility", "For a low low price you can administer controlled shocks too"},
+        new string[] {"States Avenue", "Property", "Would you like to buy States Avenue?"},
+        new string[] {"Virginia Avenue", "Property", "Would you like to buy Virginia Avenue?"},
+        new string[] {"Pennsylvania Railroad", "Railroad", "Choo Choo! Would you like to purchase this transport?"},
+        new string[] {"St. James Place", "Property", "Would you like to buy St. James Place?"},
+        new string[] {"Community Chest", "Event", "Giving back to your community is the best form of charity..."},
+        new string[] {"Tennessee Avenue", "Property", "Would you like to buy Tennessee Avenue?"},
+        new string[] {"New York Avenue", "Property", "Would you like to buy New York Avenue?"},
+        new string[] {"Free Parking", "Square", "A nice place to relax and watch others suffer through your property line"},
+        new string[] {"Kentucky Avenue", "Property", "Would you like to buy Kentucky Avenue?"},
+        new string[] {"Chance", "Event", "I think we consider too much the good luck of the early bird and not enough the bad luck of the early worm"},
+        new string[] {"Indiana Avenue", "Property", "Would you like to buy Indiana Avenue?"},
+        new string[] {"Illinois Avenue", "Property", "Would you like to buy Illinois Avenue?"},
+        new string[] {"Short Line", "Railroad", "The line may be short but there is plenty of choo choo!"},
+        new string[] {"Atlantic Avenue", "Property", "Would you like to buy Atlantic Avenue?"},
+        new string[] {"Vetnor Avenue", "Property", "Would you like to buy Vetnor Avenue?"},
+        new string[] {"Water Works", "Utility", "The water does work, wanna try it?"},
+        new string[] {"Marvin Gardens", "Property", "Would you like to buy Marvin Gardens?"},
+        new string[] {"Go to Jail", "Square", "Whoops, looks like thy caught ya"},
+        new string[] {"Pacific Avenue", "Property", "Would you like to buy Pacific Avenue?"},
+        new string[] {"North Carolina Avenue", "Property", "Would you like to buy North Carolina Avenue?"},
+        new string[] {"Community Chest", "Event", "We live in a society. Sometimes you have to give back."},
+        new string[] {"Pennsylvania Avenue", "Property", "Would you like to buy Pennsylania Avenue?"},
+        new string[] {"B & O Railroad", "Railroad", "B & O Railroad is always the last stop, buy it before there is no more choo choo"},
+        new string[] {"Chance", "Event", "Take a chance, roll the dice, you might win once or twice"},
+        new string[] {"Park Place", "Property", "Would you like to buy Park Place?"},
+        new string[] {"Luxury Tax", "Tax", "Livin' the good life I see. Pay up"},
+        new string[] {"Boardwalk", "Property", "Would you like to buy Boardwalk?"},
     };
 
     // Start is called before the first frame update
@@ -132,6 +136,8 @@ public class CardController : MonoBehaviour
             new Card("Park Place", 350, 35, 175, 500, 1100, 1300, 1500, 175, "Blue", 0),
             new Card("Boardwalk", 400, 50, 200, 600, 1400, 1700, 2000, 200, "Blue", 0)
         };
+        p1 = new List<Card> { };
+        p2 = new List<Card> { };
     }
 
     // Update is called once per frame
@@ -200,15 +206,21 @@ public class CardController : MonoBehaviour
 
     public void PopUpProperty(int position)
     {
+        //Card generation
         Card property = GetCard(locations[position][0]);
+
+        //Set Prompt Text
+        promptText.SetText(property.Name);
+        type.SetText(locations[position][1]);
+        price.SetText("$" + property.Price.ToString() + ".00");
 
         if (property.Owner == 0) // property is not owned
         {
-
+            question.SetText(locations[position][2]);
         }
         else // rent is due
         {
-            // TODO: renting
+            promptType = "Purchase";
         }
     }
 
@@ -216,5 +228,15 @@ public class CardController : MonoBehaviour
     {
         GameObject.Find("Canvas").GetComponent<PlayerData>().GiveCard(TakeCard(name, playerNum));
         GameObject.Find("Canvas").GetComponent<PlayerData>().RemoveMoney(GetCard(name).Price);
+    }
+
+    public void PromptButton()
+    {
+        switch(promptType)
+        {
+            case "Purchase":
+
+                break;
+        }
     }
 }
