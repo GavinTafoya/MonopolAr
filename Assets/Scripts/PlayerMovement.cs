@@ -49,7 +49,7 @@ public class PlayerMovement : MonoBehaviour
         if (currentPiece.name == "Player1") position1 = position;
         else position2 = position;
 
-        cardController.Prompt(position);
+        //cardController.Prompt(position);
     }
 
     private bool Placed()
