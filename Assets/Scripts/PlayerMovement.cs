@@ -42,9 +42,13 @@ public class PlayerMovement : MonoBehaviour
 
             Debug.Log(Placed());
             yield return new WaitUntil(Placed);
-            yield return new WaitForSeconds(1);
+            yield return new WaitForSeconds(0.2f);
             position = nextPosition;
         }
+
+        if (currentPiece.name == "Player1") position1 = position;
+        else position2 = position;
+
         cardController.Prompt(position);
     }
 

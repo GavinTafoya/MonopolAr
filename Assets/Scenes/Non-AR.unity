@@ -381,6 +381,11 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 554.4658
       objectReference: {fileID: 0}
+    - target: {fileID: 4067598206300211059, guid: 588352ca53170e344876b9a0ccd9cfce,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5026103864349009177, guid: 588352ca53170e344876b9a0ccd9cfce,
         type: 3}
       propertyPath: moneyText
