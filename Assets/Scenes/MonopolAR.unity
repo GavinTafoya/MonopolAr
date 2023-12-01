@@ -207,6 +207,7 @@ MonoBehaviour:
   - {fileID: 661977491}
   - {fileID: 1368874961}
   currentPiece: {fileID: 4167079613772268899}
+  cardController: {fileID: 0}
 --- !u!224 &223972127 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6591632684600655017, guid: 63d6b6c6d357c414ab2827bcae26cdc7,
@@ -512,7 +513,12 @@ PrefabInstance:
         type: 3}
       propertyPath: buyPrompt
       value: 
-      objectReference: {fileID: 986843041}
+      objectReference: {fileID: 0}
+    - target: {fileID: 4067598206300211059, guid: 588352ca53170e344876b9a0ccd9cfce,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5026103864349009177, guid: 588352ca53170e344876b9a0ccd9cfce,
         type: 3}
       propertyPath: moneyText
@@ -652,12 +658,6 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 207169545}
   m_SourcePrefab: {fileID: 100100000, guid: 588352ca53170e344876b9a0ccd9cfce, type: 3}
---- !u!1 &986843041 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4463587860445460626, guid: 588352ca53170e344876b9a0ccd9cfce,
-    type: 3}
-  m_PrefabInstance: {fileID: 986843040}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1021182788 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8682428655662654111, guid: 588352ca53170e344876b9a0ccd9cfce,
@@ -721,7 +721,7 @@ GameObject:
   - component: {fileID: 1354141927}
   m_Layer: 0
   m_Name: AR Camera
-  m_TagString: Untagged
+  m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -921,7 +921,7 @@ MonoBehaviour:
   m_Camera: {fileID: 1354141926}
   m_OriginBaseGameObject: {fileID: 1659859597}
   m_CameraFloorOffsetObject: {fileID: 0}
-  m_RequestedTrackingOriginMode: 0
+  m_RequestedTrackingOriginMode: 1
   m_CameraYOffset: 1.1176
 --- !u!114 &1659859601
 MonoBehaviour:
