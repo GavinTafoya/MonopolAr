@@ -5,6 +5,7 @@ using TMPro;
 using Unity.XR.CoreUtils;
 using UnityEngine;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 // Card object
 public struct Card : IComparable
@@ -54,56 +55,58 @@ public class CardController : MonoBehaviour
 
     [SerializeField] private GameObject promptPanel;
     [SerializeField] private TMP_Text promptText, type, question, price;
-    [SerializeField] private Button yes, no;
-    [SerializeField] private string promptType;
+    private PlayerData playerData;
 
     public string[][] locations =
     {
-        new string[] {"GO", "Square", "Oh the places you will go... but not on this roll"},
-        new string[] {"Mediterranean Avenue", "Property", "Would you like to buy Mediterranean Avenue?"},
+        new string[] {"GO", "Square", "This cost you: "},
+        new string[] {"Mediterranean Avenue", "Property", "This cost you: "},
         new string[] {"Community Chest", "Event", "Take A Card, Any Card"},
-        new string[] {"Baltic Avenue","Property", "Would you like to buy Baltic Avenue?"},
+        new string[] {"Baltic Avenue","Property", "This cost you: "},
         new string[] {"Income Tax", "Tax", "You are making too much money, pay up"},
-        new string[] {"Reading Railroad","Railroad", "Would you like to own your very own choo choo?"},
-        new string[] {"Oriental Avenue", "Property", "Would you like to buy Oriental Avenue?"},
+        new string[] {"Reading Railroad","Railroad", "This cost you: "},
+        new string[] {"Oriental Avenue", "Property", "This cost you: "},
         new string[] {"Chance", "Event", "Take a chance on me"},
-        new string[] {"Vermont Avenue", "Property", "Would you like to buy Vermont Avenue?"},
-        new string[] {"Connecticut Avenue", "Property", "Would you like to buy Connecticut Avenue?"},
+        new string[] {"Vermont Avenue", "Property", "This cost you: "},
+        new string[] {"Connecticut Avenue", "Property", "This cost you: "},
         new string[] {"Jail", "Square", "Get too lucky and they may lock you up in here..."},
-        new string[] {"St. Charles Place", "Property", "Would you like to buy St. Charles Place?"},
+        new string[] {"St. Charles Place", "Property", "This cost you: "},
         new string[] {"Electric Company", "Utility", "For a low low price you can administer controlled shocks too"},
-        new string[] {"States Avenue", "Property", "Would you like to buy States Avenue?"},
-        new string[] {"Virginia Avenue", "Property", "Would you like to buy Virginia Avenue?"},
+        new string[] {"States Avenue", "Property", "This cost you: "},
+        new string[] {"Virginia Avenue", "Property", "This cost you: "},
         new string[] {"Pennsylvania Railroad", "Railroad", "Choo Choo! Would you like to purchase this transport?"},
-        new string[] {"St. James Place", "Property", "Would you like to buy St. James Place?"},
+        new string[] {"St. James Place", "Property", "This cost you: "},
         new string[] {"Community Chest", "Event", "Giving back to your community is the best form of charity..."},
-        new string[] {"Tennessee Avenue", "Property", "Would you like to buy Tennessee Avenue?"},
-        new string[] {"New York Avenue", "Property", "Would you like to buy New York Avenue?"},
+        new string[] {"Tennessee Avenue", "Property", "This cost you: "},
+        new string[] {"New York Avenue", "Property", "This cost you: "},
         new string[] {"Free Parking", "Square", "A nice place to relax and watch others suffer through your property line"},
-        new string[] {"Kentucky Avenue", "Property", "Would you like to buy Kentucky Avenue?"},
+        new string[] {"Kentucky Avenue", "Property", "This cost you: "},
         new string[] {"Chance", "Event", "I think we consider too much the good luck of the early bird and not enough the bad luck of the early worm"},
-        new string[] {"Indiana Avenue", "Property", "Would you like to buy Indiana Avenue?"},
-        new string[] {"Illinois Avenue", "Property", "Would you like to buy Illinois Avenue?"},
+        new string[] {"Indiana Avenue", "Property", "This cost you: "},
+        new string[] {"Illinois Avenue", "Property", "This cost you: "},
         new string[] {"Short Line", "Railroad", "The line may be short but there is plenty of choo choo!"},
-        new string[] {"Atlantic Avenue", "Property", "Would you like to buy Atlantic Avenue?"},
-        new string[] {"Vetnor Avenue", "Property", "Would you like to buy Vetnor Avenue?"},
+        new string[] {"Atlantic Avenue", "Property", "This cost you: "},
+        new string[] {"Vetnor Avenue", "Property", "This cost you: "},
         new string[] {"Water Works", "Utility", "The water does work, wanna try it?"},
-        new string[] {"Marvin Gardens", "Property", "Would you like to buy Marvin Gardens?"},
+        new string[] {"Marvin Gardens", "Property", "This cost you: "},
         new string[] {"Go to Jail", "Square", "Whoops, looks like thy caught ya"},
-        new string[] {"Pacific Avenue", "Property", "Would you like to buy Pacific Avenue?"},
-        new string[] {"North Carolina Avenue", "Property", "Would you like to buy North Carolina Avenue?"},
+        new string[] {"Pacific Avenue", "Property", "This cost you: "},
+        new string[] {"North Carolina Avenue", "Property", "This cost you: "},
         new string[] {"Community Chest", "Event", "We live in a society. Sometimes you have to give back."},
-        new string[] {"Pennsylvania Avenue", "Property", "Would you like to buy Pennsylania Avenue?"},
+        new string[] {"Pennsylvania Avenue", "Property", "This cost you: "},
         new string[] {"B & O Railroad", "Railroad", "B & O Railroad is always the last stop, buy it before there is no more choo choo"},
         new string[] {"Chance", "Event", "Take a chance, roll the dice, you might win once or twice"},
-        new string[] {"Park Place", "Property", "Would you like to buy Park Place?"},
+        new string[] {"Park Place", "Property", "This cost you: "},
         new string[] {"Luxury Tax", "Tax", "Livin' the good life I see. Pay up"},
-        new string[] {"Boardwalk", "Property", "Would you like to buy Boardwalk?"},
+        new string[] {"Boardwalk", "Property", "This cost you: "},
     };
 
     // Start is called before the first frame update
     void Start()
     {
+        playerData = GameObject.Find("Canvas").GetComponent<PlayerData>();
+        promptPanel.SetActive(false);
+
         cards = new List<Card>
         {
             // Time to add every single card to the list
@@ -185,23 +188,47 @@ public class CardController : MonoBehaviour
 
     public void Prompt(int position)
     {
+        promptText.SetText(locations[position][0]);
+        type.SetText(locations[position][1]);
+
+        promptPanel.SetActive(true);
+
         // gotta handle special cases
         switch (locations[position][1])
         {
             case ("Event"):
                 PopUpEvent(position);
                 break;
+            case ("Tax"):
+                PopUpTax(position); 
+                break;
             case ("Property"):
+            case ("Utility"):
+            case ("Railroad"):
                 PopUpProperty(position);
+                break;
+            case ("Square"):
+                PopUpSquare(position);
                 break;
             default:
                 Debug.Log("How did we get here?");
                 break;
         }
     }
+
+    //PopUp Functions
     public void PopUpEvent(int position)
     {
+        int cost = Random.Range(2, 6) * 50 * ((Random.Range(-1, 1) > 0) ? 1 : -1);
 
+        //Set Prompt Text
+        promptText.SetText(locations[position][0]);
+        type.SetText(locations[position][1]);
+        question.SetText(locations[position][2]);
+        price.SetText("$" + cost + ".00");
+
+        if (cost > 0) playerData.AddMoney(cost, playerData.GetTurn()); 
+        else playerData.RemoveMoney(cost, playerData.GetTurn());
     }
 
     public void PopUpProperty(int position)
@@ -209,34 +236,57 @@ public class CardController : MonoBehaviour
         //Card generation
         Card property = GetCard(locations[position][0]);
 
-        //Set Prompt Text
-        promptText.SetText(property.Name);
-        type.SetText(locations[position][1]);
-        price.SetText("$" + property.Price.ToString() + ".00");
-
+        //Location Behavior
         if (property.Owner == 0) // property is not owned
         {
             question.SetText(locations[position][2]);
+            price.SetText("$" + property.Price.ToString() + ".00" + ((property.Price > playerData.GetMoney(playerData.GetTurn())) ? " - Not Enough" : ""));
+            if (!price.text.Contains("Not Enough")) BuyProperty(property.Name, playerData.GetTurn());
         }
         else // rent is due
         {
-            promptType = "Purchase";
+            question.SetText("You owe player" + property.Owner + ":");
+            price.SetText(" $" + property.Rent + ".00");
+            PayRent(property.Rent);
         }
     }
 
+    public void PopUpSquare(int position)
+    {
+            question.SetText(locations[position][2]);
+            price.SetText("");
+    }
+
+    public void PopUpTax(int position)
+    {
+        if (locations[position][0] == "Income Tax") playerData.RemoveMoney(playerData.GetMoney(playerData.GetTurn()) / 10, playerData.GetTurn());
+        else playerData.RemoveMoney(playerData.GetMoney(playerData.GetTurn()) / 5, playerData.GetTurn());
+    }
+
+    //Property Options
     public void BuyProperty(string name, int playerNum)
     {
-        GameObject.Find("Canvas").GetComponent<PlayerData>().GiveCard(TakeCard(name, playerNum));
-        GameObject.Find("Canvas").GetComponent<PlayerData>().RemoveMoney(GetCard(name).Price);
+        playerData.GiveCard(TakeCard(name, playerNum));
+        playerData.RemoveMoney(GetCard(name).Price, playerNum);
     }
 
+    private void PayRent(int rent)
+    {
+        if (rent > playerData.GetMoney(playerData.GetTurn()))
+        {
+            playerData.AddMoney(playerData.GetMoney(playerData.GetTurn()) + 1, (playerData.GetTurn() == 0) ? 1 : 0);
+            playerData.RemoveMoney(playerData.GetMoney(playerData.GetTurn()) + 1, playerData.GetTurn());
+        }
+        else
+        {
+            playerData.AddMoney(rent, (playerData.GetTurn() == 0) ? 1 : 0);
+            playerData.RemoveMoney(rent, playerData.GetTurn());
+        }
+    }
+
+    //Remove Prompt
     public void PromptButton()
     {
-        switch(promptType)
-        {
-            case "Purchase":
-
-                break;
-        }
+        promptPanel.SetActive(false);
     }
 }

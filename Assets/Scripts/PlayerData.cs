@@ -110,9 +110,25 @@ public class PlayerData : MonoBehaviour
         playerCards.Add(card);
     }
 
-    public int RemoveMoney(int amount)
+    public int GetMoney(int player)
     {
-        money[playerSwitch] -= amount;
+        return money[player];
+    }
+
+    public int GetTurn()
+    {
+        return playerSwitch;
+    }
+
+    public int RemoveMoney(int amount, int player)
+    {
+        money[player] -= amount;
+        return amount;
+    }
+    
+    public int AddMoney(int amount, int player)
+    {
+        money[player] += amount;
         return amount;
     }
 }
