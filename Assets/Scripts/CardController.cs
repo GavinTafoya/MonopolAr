@@ -222,13 +222,11 @@ public class CardController : MonoBehaviour
         int cost = Random.Range(2, 6) * 50 * ((Random.Range(-1, 1) > 0) ? 1 : -1);
 
         //Set Prompt Text
-        promptText.SetText(locations[position][0]);
-        type.SetText(locations[position][1]);
         question.SetText(locations[position][2]);
         price.SetText("$" + cost + ".00");
 
         if (cost > 0) playerData.AddMoney(cost, playerData.GetTurn()); 
-        else playerData.RemoveMoney(cost, playerData.GetTurn());
+        else playerData.RemoveMoney(-cost, playerData.GetTurn());
     }
 
     public void PopUpProperty(int position)
