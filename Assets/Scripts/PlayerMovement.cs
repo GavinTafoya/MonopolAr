@@ -1,18 +1,14 @@
 using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
     private int position1, position2, nextPosition;
-    private float pieceSpeed = 0.5f;
+    private readonly float pieceSpeed = 0.5f;
 
-    [SerializeField] Transform[] positions;
+    [SerializeField] private Transform[] positions;
     [SerializeField] private GameObject currentPiece;
     [SerializeField] private CardController cardController;
-
-    private bool placed = false;
 
     private void Awake()
     {

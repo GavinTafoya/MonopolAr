@@ -1,9 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-
 //class initially made by ChatGPT
+// thats a bit cringe innit
 public class KeyboardCameraController : MonoBehaviour
 {
     public float cameraSpeed = 5f;

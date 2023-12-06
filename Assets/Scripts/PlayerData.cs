@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -19,13 +18,13 @@ public class PlayerData : MonoBehaviour
     [SerializeField] private Sprite dieSix;
     [SerializeField] private PlayerMovement playerMovement;
 
-    public GameObject[] playerPieces = new GameObject[2];
+    [SerializeField] private GameObject[] playerPieces = new GameObject[2];
 
     [SerializeField] private CardController cards;
     private List<Card> playerCards; // The cards the player has
 
-    [SerializeField] private TMP_Text[] moneyText; // (temporary) The text showing the player's money
-    private int[] money = {1500, 1500};                           // How much money the player has
+    [SerializeField] private TMP_Text[] moneyText; // The text showing the player's money
+    private int[] money = {1500, 1500};            // How much money the player has
 
     // Start is called before the first frame update
     void Awake()

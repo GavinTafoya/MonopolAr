@@ -1,14 +1,11 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using TMPro;
-using Unity.XR.CoreUtils;
 using UnityEngine;
-using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
 // Card object
-public struct Card : IComparable
+public struct Card
 {
     public string Name { get; }    // Name of the card
     public int Price { get; }      // Price to buy the card
@@ -39,13 +36,6 @@ public struct Card : IComparable
         Color = color;
         Owner = owner;
     }
-
-    // Not sure why I put this in here
-    public int CompareTo(object obj)
-    {
-        Card other = (Card)obj; 
-        return Name.CompareTo(other.Name);
-    }
 }
 
 // Manages the different cards
@@ -57,7 +47,7 @@ public class CardController : MonoBehaviour
     [SerializeField] private TMP_Text promptText, type, question, price;
     private PlayerData playerData;
 
-    public string[][] locations =
+    public readonly string[][] locations =
     {
         new string[] {"GO", "Square", "This cost you: "},
         new string[] {"Mediterranean Avenue", "Property", "This cost you: "},
@@ -143,12 +133,6 @@ public class CardController : MonoBehaviour
         p2 = new List<Card> { };
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     // Gets a card by name, unless no cards of that name exists, then you get a blank card
     public Card GetCard(string name)
     {
@@ -183,9 +167,6 @@ public class CardController : MonoBehaviour
     }
 
     // Makes a prompt for the player to buy/do something else on the space they landed on
-    // This is so cancerous right now but I really can't think of a better way to start this off
-    // I don't have the time to fix this until after the break so...
-
     public void Prompt(int position)
     {
         promptText.SetText(locations[position][0]);
