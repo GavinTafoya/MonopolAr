@@ -45,7 +45,13 @@ public class CardController : MonoBehaviour
 
     [SerializeField] private GameObject promptPanel;
     [SerializeField] private TMP_Text promptText, type, question, price;
+<<<<<<< Updated upstream
     private PlayerData playerData;
+=======
+    [SerializeField] private Button yes, no;
+    [SerializeField] private string promptType;
+    [SerializeField] private PlayerData playerData;
+>>>>>>> Stashed changes
 
     public readonly string[][] locations =
     {
@@ -218,9 +224,14 @@ public class CardController : MonoBehaviour
         //Location Behavior
         if (property.Owner == 0) // property is not owned
         {
+<<<<<<< Updated upstream
             question.SetText(locations[position][2]);
             price.SetText("$" + property.Price.ToString() + ".00" + ((property.Price > playerData.GetMoney(playerData.GetTurn())) ? " - Not Enough" : ""));
             if (!price.text.Contains("Not Enough")) BuyProperty(property.Name, playerData.GetTurn());
+=======
+            //question.SetText(locations[position][2]);
+            BuyProperty(property.Name, );
+>>>>>>> Stashed changes
         }
         else // rent is due
         {
