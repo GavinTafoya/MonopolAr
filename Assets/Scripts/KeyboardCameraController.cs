@@ -5,10 +5,10 @@ using UnityEngine;
 public class KeyboardCameraController : MonoBehaviour
 {
     public float cameraSpeed = 5f;
-    public float cameraRange = 3f;
-    public float angle = 0;
-    private float distance = 1;
-    private float verticalPosition = 3;
+    public float cameraRange = 3f;      
+    public float angle = 0;             // The rotation angle of the camera
+    private float distance = 1;         // distance?
+    private float verticalPosition = 3; // Vertical position
 
     // Specify the focus point
     public Vector3 focusPoint = new Vector3(0, 2, 0);
@@ -29,6 +29,7 @@ public class KeyboardCameraController : MonoBehaviour
         transform.LookAt(focusPoint, transform.position);
 
         angle += horizontalMovement * Time.deltaTime * cameraSpeed;
+
         if(angle >= 360)
         {
             angle = 0;

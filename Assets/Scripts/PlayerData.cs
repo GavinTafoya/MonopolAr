@@ -3,25 +3,26 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
+// Handles player data for both players
 public class PlayerData : MonoBehaviour
 {
-    [SerializeField] private int die1;
-    [SerializeField] private int die2;
-    [SerializeField] private int playerSwitch = 0;
-    [SerializeField] private Image blankDieOne;
-    [SerializeField] private Image blankDieTwo;
-    [SerializeField] private Sprite dieOne;
-    [SerializeField] private Sprite dieTwo;
-    [SerializeField] private Sprite dieThree;
-    [SerializeField] private Sprite dieFour;
-    [SerializeField] private Sprite dieFive;
-    [SerializeField] private Sprite dieSix;
-    [SerializeField] private PlayerMovement playerMovement;
+    [SerializeField] private int die1;             // The first dice number
+    [SerializeField] private int die2;             // The second dice number
+    [SerializeField] private int playerSwitch = 0; // Which player's turn it is
+    [SerializeField] private Image blankDieOne;    // The first dice image
+    [SerializeField] private Image blankDieTwo;    // The second dice image
+    [SerializeField] private Sprite dieOne;        // The number 1
+    [SerializeField] private Sprite dieTwo;        // The number 2
+    [SerializeField] private Sprite dieThree;      // The number 3
+    [SerializeField] private Sprite dieFour;       // The number 4
+    [SerializeField] private Sprite dieFive;       // The number 5
+    [SerializeField] private Sprite dieSix;        // The number 6
 
-    [SerializeField] private GameObject[] playerPieces = new GameObject[2];
+    [SerializeField] private PlayerMovement playerMovement;                 // Reference to the player movement script
+    [SerializeField] private GameObject[] playerPieces = new GameObject[2]; // The two pieces for the players
 
-    [SerializeField] private CardController cards;
-    private List<Card> playerCards; // The cards the player has
+    [SerializeField] private CardController cards; // Reference to the card controller
+    private List<Card> playerCards;                // The cards the player has
 
     [SerializeField] private TMP_Text[] moneyText; // The text showing the player's money
     private int[] money = {1500, 1500};            // How much money the player has
@@ -39,6 +40,7 @@ public class PlayerData : MonoBehaviour
     }
 
     // Rolling the dice for random 1-6 int
+    // i'd really like to make this slightly nicer on the code side but it works so i'll save that for later
     public void RollDice()
     {
         die1 = Random.Range(1, 7);

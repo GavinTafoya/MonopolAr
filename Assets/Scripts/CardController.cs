@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -41,12 +40,13 @@ public struct Card
 // Manages the different cards
 public class CardController : MonoBehaviour
 {
-    private List<Card> cards, p1, p2;
+    private List<Card> cards; // The list of all the cards
 
-    [SerializeField] private GameObject promptPanel;
-    [SerializeField] private TMP_Text promptText, type, question, price;
-    private PlayerData playerData;
+    [SerializeField] private GameObject promptPanel;                     // The prompt menu
+    [SerializeField] private TMP_Text promptText, type, question, price; // All the text relating to prompts
+    private PlayerData playerData; // Reference to the player data
 
+    // Data for what prompts will say based on each location on the board
     public readonly string[][] locations =
     {
         new string[] {"GO", "Square", "This cost you: "},
@@ -129,8 +129,6 @@ public class CardController : MonoBehaviour
             new Card("Park Place", 350, 35, 175, 500, 1100, 1300, 1500, 175, "Blue", 0),
             new Card("Boardwalk", 400, 50, 200, 600, 1400, 1700, 2000, 200, "Blue", 0)
         };
-        p1 = new List<Card> { };
-        p2 = new List<Card> { };
     }
 
     // Gets a card by name, unless no cards of that name exists, then you get a blank card
@@ -197,12 +195,12 @@ public class CardController : MonoBehaviour
         }
     }
 
-    //PopUp Functions
+    // PopUp Functions
     public void PopUpEvent(int position)
     {
         int cost = Random.Range(2, 6) * 50 * ((Random.Range(-1, 1) > 0) ? 1 : -1);
 
-        //Set Prompt Text
+        // Set Prompt Text
         question.SetText(locations[position][2]);
         price.SetText("$" + cost + ".00");
 
@@ -212,10 +210,10 @@ public class CardController : MonoBehaviour
 
     public void PopUpProperty(int position)
     {
-        //Card generation
+        // Card generation
         Card property = GetCard(locations[position][0]);
 
-        //Location Behavior
+        // Location Behavior
         if (property.Owner == 0) // property is not owned
         {
             question.SetText(locations[position][2]);
@@ -232,8 +230,8 @@ public class CardController : MonoBehaviour
 
     public void PopUpSquare(int position)
     {
-            question.SetText(locations[position][2]);
-            price.SetText("");
+        question.SetText(locations[position][2]);
+        price.SetText("");
     }
 
     public void PopUpTax(int position)
@@ -242,7 +240,7 @@ public class CardController : MonoBehaviour
         else playerData.RemoveMoney(playerData.GetMoney(playerData.GetTurn()) / 5, playerData.GetTurn());
     }
 
-    //Property Options
+    // Property Options
     public void BuyProperty(string name, int playerNum)
     {
         playerData.GiveCard(TakeCard(name, playerNum));
@@ -263,7 +261,7 @@ public class CardController : MonoBehaviour
         }
     }
 
-    //Remove Prompt
+    // Remove Prompt
     public void PromptButton()
     {
         promptPanel.SetActive(false);

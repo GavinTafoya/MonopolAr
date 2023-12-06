@@ -445,6 +445,16 @@ PrefabInstance:
       propertyPath: moneyText.Array.data[1]
       value: 
       objectReference: {fileID: 1577774948}
+    - target: {fileID: 5026103864349009177, guid: 588352ca53170e344876b9a0ccd9cfce,
+        type: 3}
+      propertyPath: playerPieces.Array.data[0]
+      value: 
+      objectReference: {fileID: 1836486351}
+    - target: {fileID: 5026103864349009177, guid: 588352ca53170e344876b9a0ccd9cfce,
+        type: 3}
+      propertyPath: playerPieces.Array.data[1]
+      value: 
+      objectReference: {fileID: 2027865328}
     - target: {fileID: 5234586970715726130, guid: 588352ca53170e344876b9a0ccd9cfce,
         type: 3}
       propertyPath: m_Pivot.x
@@ -1220,6 +1230,12 @@ MonoBehaviour:
   m_DeselectOnBackgroundClick: 1
   m_PointerBehavior: 0
   m_CursorLockBehavior: 0
+--- !u!1 &2027865328 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2415305803998046981, guid: 63d6b6c6d357c414ab2827bcae26cdc7,
+    type: 3}
+  m_PrefabInstance: {fileID: 1836486311}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
