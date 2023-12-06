@@ -182,6 +182,7 @@ MonoBehaviour:
   - {fileID: 1836486314}
   - {fileID: 1836486313}
   - {fileID: 1836486312}
+  playerData: {fileID: 986843041}
   currentPiece: {fileID: 1836486351}
   cardController: {fileID: 207169546}
 --- !u!114 &207169546 stripped
@@ -569,6 +570,18 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 207169545}
   m_SourcePrefab: {fileID: 100100000, guid: 588352ca53170e344876b9a0ccd9cfce, type: 3}
+--- !u!114 &986843041 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5026103864349009177, guid: 588352ca53170e344876b9a0ccd9cfce,
+    type: 3}
+  m_PrefabInstance: {fileID: 986843040}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 207169538}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1027b2dba7dedc45b9547a8cdb2e246, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1021182788 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8682428655662654111, guid: 588352ca53170e344876b9a0ccd9cfce,
