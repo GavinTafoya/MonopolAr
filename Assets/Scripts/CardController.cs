@@ -45,6 +45,11 @@ public class CardController : MonoBehaviour
     [SerializeField] private GameObject promptPanel;                     // The prompt menu
     [SerializeField] private TMP_Text promptText, type, question, price; // All the text relating to prompts
     private PlayerData playerData; // Reference to the player data
+=======
+    [SerializeField] private Button yes, no;
+    [SerializeField] private string promptType;
+    [SerializeField] private PlayerData playerData;
+>>>>>>> Stashed changes
 
     // Data for what prompts will say based on each location on the board
     public readonly string[][] locations =
@@ -216,9 +221,14 @@ public class CardController : MonoBehaviour
         // Location Behavior
         if (property.Owner == 0) // property is not owned
         {
+<<<<<<< Updated upstream
             question.SetText(locations[position][2]);
             price.SetText("$" + property.Price.ToString() + ".00" + ((property.Price > playerData.GetMoney(playerData.GetTurn())) ? " - Not Enough" : ""));
             if (!price.text.Contains("Not Enough")) BuyProperty(property.Name, playerData.GetTurn());
+=======
+            //question.SetText(locations[position][2]);
+            BuyProperty(property.Name, );
+>>>>>>> Stashed changes
         }
         else // rent is due
         {
