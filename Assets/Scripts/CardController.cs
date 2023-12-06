@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -40,7 +41,7 @@ public struct Card
 // Manages the different cards
 public class CardController : MonoBehaviour
 {
-    private List<Card> cards; // The list of all the cards
+    private Card[] cards; // The list of all the cards
 
     [SerializeField] private GameObject promptPanel;                     // The prompt menu
     [SerializeField] private TMP_Text promptText, type, question, price; // All the text relating to prompts
@@ -97,7 +98,7 @@ public class CardController : MonoBehaviour
         playerData = GameObject.Find("Canvas").GetComponent<PlayerData>();
         promptPanel.SetActive(false);
 
-        cards = new List<Card>
+        cards = new Card[]
         {
             // Time to add every single card to the list
             new Card("Mediterranean Avenue", 60, 2, 10, 30, 90, 160, 250, 30, "Purple", 0),
@@ -139,7 +140,7 @@ public class CardController : MonoBehaviour
     }
 
     // Gets the full list of cards (probably shouldn't do that)
-    public List<Card> GetCardList()
+    public Card[] GetCardList()
     {
         return cards;
     }
@@ -147,21 +148,15 @@ public class CardController : MonoBehaviour
     // Takes a card out of the available list of cards
     public Card TakeCard(string name, int playerNum)
     {
-        Card choice = new Card("None",0,0,0,0,0,0,0,0,"",0);
-        bool cardFound = false;
-
-        foreach (Card card in cards)
+        for (int i = 0; i < cards.Length; i++)
         {
-            if (card.Name == name)
+            if (cards[i].Name.Equals(name))
             {
-                choice = card;
-                cardFound = true;
-                break;
+                cards[i].Owner = playerNum;
+                return cards[i];
             }
         }
-
-        if (cardFound) choice.Owner = playerNum;
-        return choice;
+        return new("None", 0, 0, 0, 0, 0, 0, 0, 0, "", 0);
     }
 
     // Makes a prompt for the player to buy/do something else on the space they landed on
@@ -198,7 +193,7 @@ public class CardController : MonoBehaviour
     // PopUp Functions
     public void PopUpEvent(int position)
     {
-        int cost = Random.Range(2, 6) * 50 * ((Random.Range(-1, 1) > 0) ? 1 : -1);
+        int cost = Random.Range(2, 6) * 50 * ((Random.value > 0.5f) ? 1 : -1);
 
         // Set Prompt Text
         question.SetText(locations[position][2]);
@@ -243,7 +238,7 @@ public class CardController : MonoBehaviour
     // Property Options
     public void BuyProperty(string name, int playerNum)
     {
-        playerData.GiveCard(TakeCard(name, playerNum));
+        TakeCard(name, playerNum);
         playerData.RemoveMoney(GetCard(name).Price, playerNum);
     }
 

@@ -8,6 +8,7 @@ public class PlayerMovement : MonoBehaviour
     private readonly float pieceSpeed = 0.5f;       // The speed pieces move at
 
     [SerializeField] private Transform[] positions;         // All the positions of pieces on the board
+    [SerializeField] private PlayerData playerData;         // Reference to the player data
     [SerializeField] private GameObject currentPiece;       // The piece for the current player
     [SerializeField] private CardController cardController; // Reference to the card controller
 
@@ -39,6 +40,7 @@ public class PlayerMovement : MonoBehaviour
         {
             nextPosition = position + 1;
             if (nextPosition == 40) nextPosition = 0;
+            if (position == 0) playerData.AddMoney(200, currentPiece.name == "Player1" ? 0 : 1);
 
             Debug.Log(Placed());
             yield return new WaitUntil(Placed);

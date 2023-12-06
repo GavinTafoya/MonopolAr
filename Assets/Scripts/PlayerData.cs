@@ -121,6 +121,11 @@ public class PlayerData : MonoBehaviour
         return playerSwitch;
     }
 
+    public bool HasEnoughMoney(int amount, int player)
+    {
+        return money[player] >= amount;
+    }
+
     public int RemoveMoney(int amount, int player)
     {
         money[player] -= amount;
