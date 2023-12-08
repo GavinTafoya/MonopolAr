@@ -825,11 +825,31 @@ PrefabInstance:
       propertyPath: cardController
       value: 
       objectReference: {fileID: 374360864}
+    - target: {fileID: 391035887339010696, guid: 63d6b6c6d357c414ab2827bcae26cdc7,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 391035887339010696, guid: 63d6b6c6d357c414ab2827bcae26cdc7,
+        type: 3}
+      propertyPath: m_fontSizeBase
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 2308383047866593006, guid: 63d6b6c6d357c414ab2827bcae26cdc7,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 9171ab03819cdf14aa6081fd9056619b, type: 2}
+    - target: {fileID: 4530964428888336705, guid: 63d6b6c6d357c414ab2827bcae26cdc7,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4530964428888336705, guid: 63d6b6c6d357c414ab2827bcae26cdc7,
+        type: 3}
+      propertyPath: m_fontSizeBase
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 5602719490367554905, guid: 63d6b6c6d357c414ab2827bcae26cdc7,
         type: 3}
       propertyPath: m_LocalPosition.x
