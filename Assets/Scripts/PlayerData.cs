@@ -26,7 +26,7 @@ public class PlayerData : MonoBehaviour
     private List<Card> playerCards;                // The cards the player has
 
     [SerializeField] private TMP_Text[] moneyText; // The text showing the player's money
-    private int[] money = {1500, 1500};            // How much money the player has
+    private int[] money = {1300, 1300};            // How much money the player has - starts at 1300 to counteract a GO bug
 
     // Start is called before the first frame update
     void Awake()
@@ -38,7 +38,8 @@ public class PlayerData : MonoBehaviour
     // Fixed update for less lag (doubt there will be any lag to begin with tho)
     void FixedUpdate()
     {
-        moneyText[playerSwitch].text = "Money: " + money[playerSwitch];
+        moneyText[0].text = "Money: " + money[0];
+        moneyText[1].text = "Money: " + money[1];
 
         cardLists[0].text = "";
         cardLists[1].text = "";
@@ -116,8 +117,11 @@ public class PlayerData : MonoBehaviour
         {
             blankDieTwo.sprite = dieSix;
         }
+    }
 
-        if(die1 != die2)
+    public void SwitchTurn()
+    {
+        if (die1 != die2)
         {
             playerSwitch = (playerSwitch == 0) ? 1 : 0;
         }

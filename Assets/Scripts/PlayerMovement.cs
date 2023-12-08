@@ -52,6 +52,7 @@ public class PlayerMovement : MonoBehaviour
         else position2 = position;
 
         cardController.Prompt(position);
+        playerData.SwitchTurn();
     }
 
     // Determines if a piece is placed on the next square yet

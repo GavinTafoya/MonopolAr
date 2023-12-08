@@ -155,12 +155,12 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 7ff6797da1978364a985a8045e770c88, type: 2}
+      objectReference: {fileID: 2100000, guid: 9171ab03819cdf14aa6081fd9056619b, type: 2}
     - target: {fileID: 3130936608549771454, guid: 63d6b6c6d357c414ab2827bcae26cdc7,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 9171ab03819cdf14aa6081fd9056619b, type: 2}
+      objectReference: {fileID: 2100000, guid: 7ff6797da1978364a985a8045e770c88, type: 2}
     - target: {fileID: 4530964428888336705, guid: 63d6b6c6d357c414ab2827bcae26cdc7,
         type: 3}
       propertyPath: m_fontSize
