@@ -141,6 +141,36 @@ PrefabInstance:
       propertyPath: cardController
       value: 
       objectReference: {fileID: 1550965261}
+    - target: {fileID: 391035887339010696, guid: 63d6b6c6d357c414ab2827bcae26cdc7,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 391035887339010696, guid: 63d6b6c6d357c414ab2827bcae26cdc7,
+        type: 3}
+      propertyPath: m_fontSizeBase
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394252065003853299, guid: 63d6b6c6d357c414ab2827bcae26cdc7,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 7ff6797da1978364a985a8045e770c88, type: 2}
+    - target: {fileID: 3130936608549771454, guid: 63d6b6c6d357c414ab2827bcae26cdc7,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 9171ab03819cdf14aa6081fd9056619b, type: 2}
+    - target: {fileID: 4530964428888336705, guid: 63d6b6c6d357c414ab2827bcae26cdc7,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4530964428888336705, guid: 63d6b6c6d357c414ab2827bcae26cdc7,
+        type: 3}
+      propertyPath: m_fontSizeBase
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 5602719490367554905, guid: 63d6b6c6d357c414ab2827bcae26cdc7,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -208,11 +238,43 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 4010387494689151279, guid: 63d6b6c6d357c414ab2827bcae26cdc7,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
     - targetCorrespondingSourceObject: {fileID: 4208089204938627142, guid: 63d6b6c6d357c414ab2827bcae26cdc7,
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 8996023560984247149, guid: 63d6b6c6d357c414ab2827bcae26cdc7,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 63d6b6c6d357c414ab2827bcae26cdc7, type: 3}
+--- !u!114 &20051165 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 391035887339010696, guid: 63d6b6c6d357c414ab2827bcae26cdc7,
+    type: 3}
+  m_PrefabInstance: {fileID: 20051164}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9541d86e2fd84c1d9990edf0852d74ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &349547056 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4530964428888336705, guid: 63d6b6c6d357c414ab2827bcae26cdc7,
+    type: 3}
+  m_PrefabInstance: {fileID: 20051164}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9541d86e2fd84c1d9990edf0852d74ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &548910364
 GameObject:
   m_ObjectHideFlags: 0
@@ -339,6 +401,16 @@ PrefabInstance:
       propertyPath: playerMovement
       value: 
       objectReference: {fileID: 673499891}
+    - target: {fileID: 5026103864349009177, guid: 588352ca53170e344876b9a0ccd9cfce,
+        type: 3}
+      propertyPath: cardLists.Array.data[0]
+      value: 
+      objectReference: {fileID: 20051165}
+    - target: {fileID: 5026103864349009177, guid: 588352ca53170e344876b9a0ccd9cfce,
+        type: 3}
+      propertyPath: cardLists.Array.data[1]
+      value: 
+      objectReference: {fileID: 349547056}
     - target: {fileID: 5026103864349009177, guid: 588352ca53170e344876b9a0ccd9cfce,
         type: 3}
       propertyPath: moneyText.Array.data[0]

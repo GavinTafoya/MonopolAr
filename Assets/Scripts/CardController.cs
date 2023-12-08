@@ -135,8 +135,13 @@ public class CardController : MonoBehaviour
     // Gets a card by name, unless no cards of that name exists, then you get a blank card
     public Card GetCard(string name)
     {
-        foreach (Card card in cards) if (card.Name == name) return card;
+        foreach (Card card in cards) if (card.Name == name) return new Card(card.Name, card.Price, card.Rent, card.OneHouse, card.TwoHouse, card.ThreeHouse, card.FourHouse, card.Hotel, card.Mortgage, card.Color, card.Owner);
         return new Card("None",0,0,0,0,0,0,0,0,"", 0);
+    }
+
+    public Card GetCard(int num)
+    {
+        return new Card(cards[num].Name, cards[num].Price, cards[num].Rent, cards[num].OneHouse, cards[num].TwoHouse, cards[num].ThreeHouse, cards[num].FourHouse, cards[num].Hotel, cards[num].Mortgage, cards[num].Color, cards[num].Owner);
     }
 
     // Gets the full list of cards (probably shouldn't do that)
@@ -213,7 +218,7 @@ public class CardController : MonoBehaviour
         {
             question.SetText(locations[position][2]);
             price.SetText("$" + property.Price.ToString() + ".00" + ((property.Price > playerData.GetMoney(playerData.GetTurn())) ? " - Not Enough" : ""));
-            if (!price.text.Contains("Not Enough")) BuyProperty(property.Name, playerData.GetTurn());
+            if (!price.text.Contains("Not Enough")) BuyProperty(property.Name, playerData.GetTurn() + 1);
         }
         else // rent is due
         {
@@ -239,7 +244,7 @@ public class CardController : MonoBehaviour
     public void BuyProperty(string name, int playerNum)
     {
         TakeCard(name, playerNum);
-        playerData.RemoveMoney(GetCard(name).Price, playerNum);
+        playerData.RemoveMoney(GetCard(name).Price, playerNum - 1);
     }
 
     private void PayRent(int rent)

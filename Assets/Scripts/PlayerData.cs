@@ -22,6 +22,7 @@ public class PlayerData : MonoBehaviour
     [SerializeField] private GameObject[] playerPieces = new GameObject[2]; // The two pieces for the players
 
     [SerializeField] private CardController cards; // Reference to the card controller
+    [SerializeField] private TMP_Text[] cardLists; // The lists of cards next to the person's money
     private List<Card> playerCards;                // The cards the player has
 
     [SerializeField] private TMP_Text[] moneyText; // The text showing the player's money
@@ -34,9 +35,25 @@ public class PlayerData : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    // Fixed update for less lag (doubt there will be any lag to begin with tho)
+    void FixedUpdate()
     {
         moneyText[playerSwitch].text = "Money: " + money[playerSwitch];
+
+        cardLists[0].text = "";
+        cardLists[1].text = "";
+
+        for (int i = 0; i < cards.GetCardList().Length; i++)
+        {
+            if (cards.GetCard(i).Owner == 1)
+            {
+                cardLists[0].text += cards.GetCard(i).Name + cards.GetCard(i).Owner + "\n";
+            }
+            else if (cards.GetCard(i).Owner == 2)
+            {
+                cardLists[1].text += cards.GetCard(i).Name + cards.GetCard(i).Owner + "\n";
+            }
+        }
     }
 
     // Rolling the dice for random 1-6 int
