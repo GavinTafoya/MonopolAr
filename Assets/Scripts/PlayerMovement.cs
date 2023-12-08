@@ -25,6 +25,11 @@ public class PlayerMovement : MonoBehaviour
         currentPiece.transform.position = new Vector3(movement.x, currentPiece.transform.position.y, movement.z);
     }
 
+    public void MoveToJail()
+    {
+        currentPiece.transform.position = positions[10].position;
+    }
+
     // Starts piece movement
     public void MovePiece(int numSpaces, GameObject piece)
     {

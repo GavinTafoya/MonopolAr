@@ -8,6 +8,7 @@ public class PlayerData : MonoBehaviour
 {
     [SerializeField] private int die1;             // The first dice number
     [SerializeField] private int die2;             // The second dice number
+    [SerializeField] private int doublesRolled;    // How many doubles were rolled
     [SerializeField] private int playerSwitch = 0; // Which player's turn it is
     [SerializeField] private Image blankDieOne;    // The first dice image
     [SerializeField] private Image blankDieTwo;    // The second dice image
@@ -121,9 +122,20 @@ public class PlayerData : MonoBehaviour
 
     public void SwitchTurn()
     {
-        if (die1 != die2)
+        if (die1 == die2)
+        {
+            doublesRolled++;
+        }
+        else if (die1 != die2)
         {
             playerSwitch = (playerSwitch == 0) ? 1 : 0;
+        }
+
+        if (doublesRolled == 1)
+        {
+            money[playerSwitch] -= 50;
+            playerMovement.MoveToJail();
+            playerSwitch = (playerSwitch == 0) ? 1: 0;
         }
     }
 
