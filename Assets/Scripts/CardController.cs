@@ -45,8 +45,8 @@ public class CardController : MonoBehaviour
 
     [SerializeField] private GameObject promptPanel;                     // The prompt menu
     [SerializeField] private TMP_Text promptText, type, question, price; // All the text relating to prompts
+    [SerializeField] private PlayerMovement playerMovement;
     private PlayerData playerData; // Reference to the player data
-    private PlayerMovement playerMovement;
 
     // Data for what prompts will say based on each location on the board
     public readonly string[][] locations =
@@ -97,7 +97,6 @@ public class CardController : MonoBehaviour
     void Start()
     {
         playerData = GameObject.Find("Canvas").GetComponent<PlayerData>();
-        playerMovement = GameObject.Find("Board").GetComponent<PlayerMovement>();
         promptPanel.SetActive(false);
 
         cards = new Card[]
@@ -234,6 +233,7 @@ public class CardController : MonoBehaviour
     {
         question.SetText(locations[position][2]);
         price.SetText("");
+        Debug.Log(playerMovement);
         if (position == 30) playerMovement.MoveToJail();
         playerData.RemoveMoney(50, playerData.GetTurn());
     }

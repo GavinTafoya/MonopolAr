@@ -46,6 +46,11 @@ PrefabInstance:
       propertyPath: m_fontSize
       value: 33.8
       objectReference: {fileID: 0}
+    - target: {fileID: 2270371380377670775, guid: 588352ca53170e344876b9a0ccd9cfce,
+        type: 3}
+      propertyPath: playerMovement
+      value: 
+      objectReference: {fileID: 5725003146716116384}
     - target: {fileID: 5026103864349009177, guid: 588352ca53170e344876b9a0ccd9cfce,
         type: 3}
       propertyPath: playerMovement
