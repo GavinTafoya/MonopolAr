@@ -131,13 +131,12 @@ public class PlayerData : MonoBehaviour
         }
         else if (die1 != die2)
         {
-            doublesRolled = 0;
+            ResetDoubles();
             playerSwitch = (playerSwitch == 0) ? 1 : 0;
         }
 
         if (doublesRolled == 3)
         {
-            doublesRolled = 0;
             money[playerSwitch] -= 50;
             playerMovement.MoveToJail();
             playerSwitch = (playerSwitch == 0) ? 1: 0;
@@ -175,5 +174,10 @@ public class PlayerData : MonoBehaviour
     {
         money[player] += amount;
         return amount;
+    }
+
+    public void ResetDoubles()
+    {
+        doublesRolled = 0;
     }
 }

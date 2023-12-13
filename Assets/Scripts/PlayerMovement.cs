@@ -30,6 +30,7 @@ public class PlayerMovement : MonoBehaviour
         if((currentPiece.name == "Player1"))  position1 = 10;
         else position2 = 10;
 
+        playerData.ResetDoubles();
         currentPiece.transform.position = new Vector3(positions[10].position.x, currentPiece.transform.position.y, positions[10].position.z);
     }
 
