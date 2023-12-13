@@ -245,6 +245,8 @@ public class CardController : MonoBehaviour
     {
         TakeCard(name, playerNum);
         playerData.RemoveMoney(GetCard(name).Price, playerNum - 1);
+        int index = cards.ToList().IndexOf(cards.ToList().Find(x => x.Name == name)); // so goofy
+        playerData.EnableCard(playerNum - 1, index);
     }
 
     private void PayRent(int rent)

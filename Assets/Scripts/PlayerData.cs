@@ -22,9 +22,11 @@ public class PlayerData : MonoBehaviour
     [SerializeField] private PlayerMovement playerMovement;                 // Reference to the player movement script
     [SerializeField] private GameObject[] playerPieces = new GameObject[2]; // The two pieces for the players
 
-    [SerializeField] private CardController cards; // Reference to the card controller
-    [SerializeField] private TMP_Text[] cardLists; // The lists of cards next to the person's money
-    private List<Card> playerCards;                // The cards the player has
+    [SerializeField] private CardController cards;      // Reference to the card controller
+    [SerializeField] private GameObject[] cardDisplay1; // The display of player 1's cards
+    [SerializeField] private GameObject[] cardDisplay2; // The display of player 2's cards
+    [SerializeField] private Sprite[] cardSprites;      // The list of card sprites
+    private List<Card> playerCards;                     // The cards the player has
 
     [SerializeField] private TMP_Text[] moneyText; // The text showing the player's money
     private int[] money = {1300, 1300};            // How much money the player has - starts at 1300 to counteract a GO bug
@@ -39,9 +41,9 @@ public class PlayerData : MonoBehaviour
     // Fixed update for less lag (doubt there will be any lag to begin with tho)
     void FixedUpdate()
     {
-        moneyText[0].text = "Money: " + money[0];
-        moneyText[1].text = "Money: " + money[1];
-
+        moneyText[0].text = "" + money[0];
+        moneyText[1].text = "" + money[1];
+        /*
         cardLists[0].text = "";
         cardLists[1].text = "";
 
@@ -55,7 +57,8 @@ public class PlayerData : MonoBehaviour
             {
                 cardLists[1].text += cards.GetCard(i).Name + cards.GetCard(i).Owner + "\n";
             }
-        }
+        }*/
+
     }
 
     // Rolling the dice for random 1-6 int
@@ -139,9 +142,10 @@ public class PlayerData : MonoBehaviour
         }
     }
 
-    public void GiveCard(Card card)
+    public void EnableCard(int playerNum, int cardIndex)
     {
-        playerCards.Add(card);
+        if (playerNum == 0) cardDisplay1[cardIndex].SetActive(true);
+        else cardDisplay2[cardIndex].SetActive(true);
     }
 
     public int GetMoney(int player)
